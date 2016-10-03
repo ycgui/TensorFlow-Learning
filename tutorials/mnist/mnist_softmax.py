@@ -29,7 +29,7 @@ import tensorflow as tf
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_string('data_dir', '/tmp/data/', 'Directory for storing data')
+flags.DEFINE_string('data_dir', '/Users/ycgui/tf_experiments/mnist_data', 'Directory for storing data')
 
 # Download and read MNIST data
 mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)

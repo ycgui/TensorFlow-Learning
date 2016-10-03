@@ -38,7 +38,7 @@ flags.DEFINE_integer('hidden1', 128, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_integer('batch_size', 100, 'Batch size.  '
                      'Must divide evenly into the dataset sizes.')
-flags.DEFINE_string('train_dir', 'data', 'Directory to put the training data.')
+flags.DEFINE_string('train_dir', '/Users/ycgui/tf_experiments/mnist_data', 'Directory to put the training data.')
 flags.DEFINE_boolean('fake_data', False, 'If true, uses fake data '
                      'for unit testing.')
 
@@ -81,6 +81,9 @@ def fill_feed_dict(data_set, images_pl, labels_pl):
     Returns:
         feed_dict: The feed dictionary mapping from placeholders to values.
     """
+    # For each step, the code will generate a feed dictionary 
+    # that will contain the set of examples on which to train for the step, 
+    # keyed by the placeholder ops they represent.
     # Create the feed_dict for the placeholders filled with the next
     # `batch size` examples.
     images_feed, labels_feed = data_set.next_batch(FLAGS.batch_size, FLAGS.fake_data)
