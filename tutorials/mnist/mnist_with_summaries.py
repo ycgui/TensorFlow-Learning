@@ -42,8 +42,8 @@ flags.DEFINE_string('summaries_dir', '/Users/ycgui/tf_experiments/mnist_logs', '
 def train():
 	# Import data
 	mnist = input_data.read_data_sets(FLAGS.data_dir,
-																		one_hot=True,
-																		fake_data=FLAGS.fake_data)
+										one_hot=True,
+										fake_data=FLAGS.fake_data)
 
 	sess = tf.InteractiveSession()
 
@@ -161,9 +161,9 @@ def train():
 				run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
 				run_metadata = tf.RunMetadata()
 				summary, _ = sess.run([merged, train_step],
-															feed_dict=feed_dict(True),
-															options=run_options,
-															run_metadata=run_metadata)
+										feed_dict=feed_dict(True),
+										options=run_options,
+										run_metadata=run_metadata)
 				train_writer.add_run_metadata(run_metadata, 'step%03d' % i)
 				train_writer.add_summary(summary, i)
 				print('Adding run metadata for', i)
